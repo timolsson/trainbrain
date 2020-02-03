@@ -1,72 +1,53 @@
-import React, { useState, useEffect } from "react";
-import ReactMapGL, { Marker, Popup } from "react-map-gl";
-import * as trainData from "./components/knockon.json";
+import React, {useEffect, useState} from "react"
+import ReactMapGL, {Marker} from "react-map-gl"
+import TopBox from "./components/topbox"
 
-export default function App() {
+function App() {
   const [viewport, setViewport] = useState({
-    latitude: 37.7577,
-    longitude: -122.4376,
+    latitude: 59.334591,
+    longitude: 18.06324,
     width: "100vw",
     height: "100vh",
-    zoom: 0
-  });
-  const [selectedStation, setSelectedStation] = useState(null);
-
+    zoom: 8
+  })
+  const [delay, setDelay] = useState("")
+  function fetchData() {
+    fetch(
+      "https://cors-anywhere.herokuapp.com/https://labs.thetrainbrain.com/knockon/?minutes=30"
+    )
+      .then(response => response.json())
+      .then(data => setDelay(data))
+  }
   useEffect(() => {
-    const listener = e => {
-      if (e.key === "Escape") {
-        setSelectedStation(null);
-      }
-    };
-    window.addEventListener("keydown", listener);
-
-    return () => {
-      window.removeEventListener("keydown", listener);
-    };
-  }, []);
-
+    setInterval(() => {
+      fetchData()
+    }, 5000)
+  }, [])
   return (
     <div>
       <ReactMapGL
+        className="map"
         {...viewport}
-        mapStyle="mapbox://styles/joakimhellgren/ck5nrjreg2k3f1imprc5vyw6z"
-        mapboxApiAccessToken="pk.eyJ1Ijoiam9ha2ltaGVsbGdyZW4iLCJhIjoiY2s1a3NscDRqMGczdjNscm04OXMwdWlxYyJ9.gFU5MsFPKNlqM96iO0zEfQ"
+        mapStyle="mapbox://styles/timolsson/ck5za7t0m0q7r1ipccguemt6i"
+        mapboxApiAccessToken="pk.eyJ1IjoidGltb2xzc29uIiwiYSI6ImNrNXo4bmdvODBya3UzbG5qd3hsZXY2YWsifQ.Tl62NRb0hKYTZR8maLDVzA"
         onViewportChange={viewport => {
-          setViewport(viewport);
+          setViewport(viewport)
         }}
       >
-        {trainData.disruptions.map(disruptions => (
-          <Marker
-            latitude={Number(disruptions.station.lat)}
-            longitude={Number(disruptions.station.lng)}
-          >
-            <button
-              className="marker-btn"
-              onClick={e => {
-                e.preventDefault();
-                setSelectedStation(disruptions);
-              }}
-            >
-              <img src="" alt="delay dot" />
-            </button>
-          </Marker>
-        ))}
-
-        {selectedStation ? (
-          <Popup
-            latitude={Number(selectedStation.station.lat)}
-            longitude={Number(selectedStation.station.lng)}
-            onClose={() => {
-              setSelectedStation(null);
-            }}
-          >
-            <div>
-              <h2>{selectedStation.station.station}</h2>
-              <p>{selectedStation.delaycount}</p>
-            </div>
-          </Popup>
-        ) : null}
+        {delay == ""
+          ? console.log("loading...")
+          : delay.disruptions.map(disruptions => (
+              <Marker
+                key={disruptions.station.station}
+                latitude={Number(disruptions.station.lat)}
+                longitude={Number(disruptions.station.lng)}
+              >
+                <div>DELAY</div>
+              </Marker>
+            ))}
+        <TopBox />
       </ReactMapGL>
     </div>
-  );
+  )
 }
+export default App

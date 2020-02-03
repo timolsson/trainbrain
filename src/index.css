@@ -1,13 +1,165 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.rectangle1 {
+  position: absolute;
+  width: 360px;
+  height: 179.5px;
+  left: 0px;
+  top: 0px;
+
+  background: rgba(59, 78, 136, 0.74);
+}
+.rectangle2 {
+  position: absolute;
+  width: 360px;
+  height: 721px;
+  left: 0px;
+  top: 179px;
+
+  background: rgba(49, 65, 114, 0.7);
+}
+.title {
+  position: absolute;
+  width: 258px;
+  height: 27px;
+  left: 60px;
+  top: 34px;
+
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 48px;
+  color: #ffffff;
+}
+.delay-title {
+  position: absolute;
+  width: 253px;
+  height: 42px;
+  left: 58px;
+  top: 201px;
+
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 42px;
+  /* identical to box height */
+
+  color: #ffffff;
+}
+.line2 {
+  position: absolute;
+  width: 321px;
+  height: 0px;
+  left: 19px;
+  top: 417px;
+
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+.line1 {
+  position: absolute;
+  width: 321px;
+  height: 0px;
+  left: 19px;
+  top: 344px;
+
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.line3 {
+  position: absolute;
+  width: 321px;
+  height: 0px;
+  left: 19px;
+  top: 493px;
+
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.line4 {
+  position: absolute;
+  width: 321px;
+  height: 0px;
+  left: 19px;
+  top: 569px;
+
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.göteborg1 {
+  position: absolute;
+  width: 141px;
+  height: 54px;
+  left: 59px;
+  top: 276px;
+
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+
+  color: #ffffff;
+}
+
+.göteborg2 {
+  position: absolute;
+  width: 141px;
+  height: 54px;
+  left: 58px;
+  top: 352px;
+
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+
+  color: #ffffff;
+}
+
+.göteborg3 {
+  position: absolute;
+  width: 141px;
+  height: 54px;
+  left: 59px;
+  top: 428px;
+
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+
+  color: #ffffff;
+}
+
+.göteborg4 {
+  position: absolute;
+  width: 141px;
+  height: 54px;
+  left: 58px;
+  top: 504px;
+
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+
+  color: #ffffff;
 }
