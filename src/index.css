@@ -163,3 +163,16 @@ code {
 
   color: #ffffff;
 }
+
+.infobox {
+  position: absolute;
+  width: 80px;
+  height: 180;
+  right: 0px;
+  top: 0px;
+  background: rgba(59, 78, 136, 0.74);
+}
+
+.mark1 {
+  color: white;
+}
